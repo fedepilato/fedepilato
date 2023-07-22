@@ -2,10 +2,34 @@
     display: flex;
     flex-direction: row;
     width: 1fr;
+    margin-left: -8px;
+    margin-right: -8px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    position: relative;
+    text-align: center;
 }
 
 .automazione {
-    display: flex;
-    flex-direction: row;
-    width: 1000px;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.title-text {
+    position: absolute;
+    bottom: 150px;
+    left: 30px;
+    font-size: 50px;
+    font-family: Anton, Arial;
+    color: white;
+    border: none;
+}
+
+.title-description {
+    position: absolute;
+    bottom: 120px;
+    font-size: 30px;
+    font-family: Anton, Arial;
 }

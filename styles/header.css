@@ -10,8 +10,27 @@
     right: 0;
     z-index: 100;
 
-    background-color: black;
+    background-color: whitesmoke;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: pink;
+    border-bottom-color: black;
+    border-bottom: 5px;
+
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.user, .graduation, .briefcase, .phone {
+    width: 50px;
+}
+
+.user-button, .graduation-button, .briefcase-button, .phone-button {
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    }
+
+.user-button:hover {
+    background-color: rgb(235, 235, 235);
 }
