@@ -1,0 +1,11 @@
+.central-image {
+    display: flex;
+    flex-direction: row;
+    width: 1fr;
+}
+
+.automazione {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+}
