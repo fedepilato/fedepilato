@@ -5,7 +5,7 @@
     margin-left: -8px;
     margin-right: -8px;
     border-style: solid;
-    border-color: black;
+    border-color: rgb(5, 56, 107);
     border-width: 2px;
 
     position: relative;
@@ -23,13 +23,15 @@
     left: 30px;
     font-size: 50px;
     font-family: Anton, Arial;
-    color: white;
+    color: rgb(237 ,245 ,225);
     border: none;
 }
 
 .title-description {
     position: absolute;
     bottom: 120px;
+    left: 30px;
     font-size: 30px;
+    color: rgb(237 ,245 ,225);
     font-family: Anton, Arial;
 }
