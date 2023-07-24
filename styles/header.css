@@ -20,6 +20,7 @@
 
 .user, .graduation, .briefcase, .phone {
     width: 50px;
+    height: 50px;
 }
 
 .user-button, .graduation-button, .briefcase-button, .phone-button {
