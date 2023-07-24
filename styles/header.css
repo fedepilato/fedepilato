@@ -14,23 +14,55 @@
     border-width: 2px;
     border-color: rgb(5, 56, 107);
 
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 20px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0;
 }
 
 .user, .graduation, .briefcase, .phone {
-    width: 50px;
-    height: 50px;
+    height: 40px;;
 }
 
 .user-button, .graduation-button, .briefcase-button, .phone-button {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
     background-color: rgb(55, 150, 131);
     border: none;
     cursor: pointer;
-    width: 50px;
+    height: 50px;
     border-radius: 25px;
+    position: relative;
     }
 
-.user-button:hover, .graduation-button:hover, .briefcase-button:hover, .phone-button:hover {
-    background-color: rgb(44, 123, 107);
+.user-button .tooltip, .graduation-button .tooltip, .briefcase-button .tooltip, .phone-button .tooltip {
+    position: absolute;
+    background-color: rgb(5, 56, 107);
+    color: rgb(237 ,245 ,225);
+    right: -70px;
+    padding: 6px;
+    border-radius: 8px;
+
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.user-button:hover .tooltip, .graduation-button:hover .tooltip, .briefcase-button:hover .tooltip, .phone-button:hover .tooltip {
+    opacity: 1;
+}
+
+
+
+.right.section {
+    display: flex;
+    width: 1fr;
 }

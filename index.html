@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fede Pilato</title>
+        <title>Federico Pilato</title>
         <link rel="stylesheet" href="styles/general.css">
         <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="styles/central-image.css">
@@ -14,18 +14,27 @@
     <body>
         <!--HEADER-->
         <div class="header">
-            <button class="user-button">
-                <img class="user" src="icons/user.png">
-            </button>
-            <button class="graduation-button">
-                <img class="graduation" src="icons/graduation-cap.png">
-            </button>
-            <button class="briefcase-button">
-                <img class="briefcase" src="icons/briefcase.png">
-            </button>
-            <button class="phone-button">
-                <img class="phone" src="icons/phone-call.png">
-            </button>
+            <div class="left-section">
+                <button class="user-button">
+                    <img class="user" src="icons/user.png">
+                    <div class="tooltip">About me</div>
+                </button>
+                <button class="graduation-button">
+                    <img class="graduation" src="icons/graduation-cap.png">
+                    <div class="tooltip">Education</div>
+                </button>
+                <button class="briefcase-button">
+                    <img class="briefcase" src="icons/briefcase.png">
+                    <div class="tooltip">Experience</div>
+                </button>
+                <button class="phone-button">
+                    <img class="phone" src="icons/phone-call.png">
+                    <div class="tooltip">Social & Contacts</div>
+                </button>
+            </div>
+
+            <div class="right-section"></div>
+        
         </div>
 
         <!--front image-->
@@ -34,9 +43,5 @@
             <span class="title-text">Welcome! My name is Federico Pilato</span>
             <span class="title-description">Computer Engineer</span>
         </div>
-
-        <h1>
-            SITE IN DEVELOPMENT
-        </h1>
     </body>
 </html>
