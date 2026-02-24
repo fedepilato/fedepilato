@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Federico Pilato</title>
         <link rel="stylesheet" href="styles/general.css">
         <link rel="stylesheet" href="styles/header.css">
@@ -9,41 +11,124 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     </head>
     <body>
         <!--HEADER-->
-        <div class="header">
-            <div class="left-section">
-                <button class="user-button">
-                    <img class="user" src="icons/user.png">
+        <header class="header">
+            <nav class="left-section">
+                <a class="nav-button" href="#about" data-nav="about">
+                    <img class="user" src="icons/user.png" alt="About">
                     <div class="tooltip">About me</div>
-                </button>
-                <button class="graduation-button">
-                    <img class="graduation" src="icons/graduation-cap.png">
+                </a>
+                <a class="nav-button" href="#education" data-nav="education">
+                    <img class="graduation" src="icons/graduation-cap.png" alt="Education">
                     <div class="tooltip">Education</div>
-                </button>
-                <button class="briefcase-button">
-                    <img class="briefcase" src="icons/briefcase.png">
+                </a>
+                <a class="nav-button" href="#experience" data-nav="experience">
+                    <img class="briefcase" src="icons/briefcase.png" alt="Experience">
                     <div class="tooltip">Experience</div>
-                </button>
-                <button class="phone-button">
-                    <img class="phone" src="icons/phone-call.png">
+                </a>
+                <a class="nav-button" href="#contact" data-nav="contact">
+                    <img class="phone" src="icons/phone-call.png" alt="Contact">
                     <div class="tooltip">Social & Contacts</div>
-                </button>
+                </a>
+            </nav>
+
+            <div class="right-section">
+                <div class="site-title">Federico Pilato</div>
+                </a>
             </div>
+        </header>
 
-            <div class="right-section"></div>
-        
-        </div>
+        <!--front / hero image-->
+        <section id="home" class="hero">
+            <div class="central-image">
+                <img class="automazione" src="images/central-image.jpg" alt="central image">
+                <div class="hero-overlay">
+                    <h1 class="title-text">Federico Pilato</h1>
+                    <p class="title-description">Computer Engineer</p>
+                </div>
+            </div>
+        </section>
 
-        <!--front image-->
-        <div class="central-image">
-            <img class="automazione" src="images/central-image.jpg">
-            <span class="title-text">Welcome! My name is Federico Pilato</span>
-            <span class="title-description">Computer Engineer</span>
-        </div>
+        <!--Sections-->
+        <section id="about" class="section section--light">
+            <div class="section-container">
+                <h2>About</h2>
+                <div class="content-box">
+                    <p>Hello — I am a Computer Engineering student driven by the challenge of connecting the physical and digital worlds. My expertise spans from building Full-Stack applications to developing IoT and Robotics solutions. I thrive in the "learning phase," constantly exploring new technologies to find the most efficient tool for the job.</p>
+                    <ul>
+                        <li>Hardware: Arduino, Sensors, Microcontrollers</li>
+                        <li>Software: Full-Stack Development, Python Automation, Arduino</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <h1>SITE IN DEVELOPMENT</h1>
+        <section id="education" class="section section--dark">
+            <div class="section-container">
+                <h2>Education</h2>
+                <div class="content-box">
+                    <p><strong>B.Sc. Computer Engineering</strong> — Politecnico di Torino, 2022 - Present<br>
+                    Relevant coursework: Algorithms, Operating Systems, Computer Networks, Data Structure, IoT<br>
+                    Skills: JavaScript, Python, HTML/CSS, Git, Docker, C, MySQL, Arduino, MQTT
+                    </p>
+                    <p><strong>High School Diploma</strong> - Liceo Scientifico Convitto Nazionale Umberto I - 2022</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section section--light">
+            <div class="section-container">
+                <h2>Experience</h2>
+                <div class="content-box">
+                    <article class="project">
+                        <h3>Personal Portfolio & Brand Identity</h3>
+                        <p><strong>The Tech:</strong> JavaScript, CSS3, HTML5, Responsive Design.<br>
+                        <strong>The Build:</strong> A custom-engineered digital space designed to showcase my engineering philosophy. Focused on clean UI/UX, optimized performance, and a technical aesthetic that reflects my work in Computer Engineering.</p>
+                    </article>
+                    <article class="project">
+                        <h3>Automated Video Production Pipeline</h3>
+                        <p><strong>The Tech:</strong> n8n, Python, Docker, AI Video Synthesis (Generative AI).<br>
+                        <strong>The Build:</strong> Architected a fully autonomous "YouTube Bot" using the n8n low-code platform. The system orchestrates data fetching, AI content generation, and automated video assembly, removing 100% of the manual labor from the video creation process, using an AI agent created from scratch using Python.</p>
+                    </article>
+                    <article class="project">
+                        <h3>Discreet AI-Vision IoT Node</h3>
+                        <p><strong>The Tech:</strong> Arduino, ESP32-CAM, Telegram API, Python<br>
+                        <strong>The Build:</strong> Engineered a compact, low-profile camera system for personal monitoring. It uses a custom Telegram bot interface to transmit captured data, featuring an AI layer for autonomous photo analysis and filtering.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section--dark">
+            <div class="section-container">
+                <h2>Contact</h2>
+                <div class="content-box">
+                    <p>Email: federico.pilato03@gmail.com</p>
+                    <p class="contact-icons">
+                        <a class="cv-button" href="files/CV.txt" download="Federico-Pilato-CV.txt" title="Download CV">
+                            <img src="icons/download.svg" alt="Download CV" class="cv-icon">
+                            <span>Download CV</span>
+                        </a>
+                        <a class="icon-link" href="https://github.com/fedepilato" target="_blank" rel="noopener" title="GitHub">
+                            <img src="icons/github.svg" alt="GitHub" height="20">
+                        </a>
+                        <a class="icon-link" href="#" title="LinkedIn">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" height="20">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="section-container">
+                <p>--- Site in development ---</p>
+            </div>
+        </footer>
+        <script src="scripts/main.js" defer></script>
     </body>
 </html>

@@ -1,18 +1,101 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: rgb(92, 219, 149);
-    padding-top: 90px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom:300px;
-}
-
-p {
     margin: 0;
+    font-family: 'Anton', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial;
+    background: linear-gradient(180deg, #e8f9f0 0%, #dff6ea 100%);
+    color: #073645;
+    padding-top: 110px; /* room for fixed header */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-    color: rgb(237 ,245 ,225);
-    text-align: center;
-    font-weight: bold;
-    font-size: 50px;
+p { margin: 0 0 1em 0; }
+
+h1, h2 {
+    color: #f3f6f1;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Anton', Arial, sans-serif;
 }
+
+h1 { font-size: 48px; text-align: left; }
+h2 { font-size: 28px; color: #053642; }
+
+.section {
+    padding: 60px 20px;
+}
+
+/* Use JetBrains Mono for section content (monospaced for readability) */
+.section, .section-container, .section .content-box, .section p, .section li {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+.section--light { background: rgba(255,255,255,0.85); }
+.section--dark { background: rgba(5,56,107,0.06); }
+
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px;
+    border-radius: 12px;
+}
+
+.content-box {
+    background: rgba(255,255,255,0.6);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(5,56,107,0.08);
+}
+
+.site-title {
+    color: #f3f6f1;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.site-footer { padding: 28px 0; text-align: center; color: #053642; }
+
+/* Using Google-hosted Anton via <link> in index.html */
+
+/* Simple reveal animation used for section entries */
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.project { margin-bottom: 14px; }
+
+/* small utility for links inside content */
+.content-box a { color: #035; text-decoration: underline; }
+
+/* Contact icons row */
+.contact-icons { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
+.contact-icons .icon-link img { filter: none; height: 28px; width: auto; }
+
+/* CV download button in contact section */
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(5,56,66,0.12); /* translucent so text remains readable */
+    color: #053642; /* dark text for contrast against translucent bg */
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid rgba(5,56,66,0.14);
+    box-shadow: 0 6px 14px rgba(5,56,107,0.08);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s;
+    font-weight: 600;
+}
+.cv-button:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(5,56,107,0.12); opacity: 1; }
+.cv-button:active { transform: translateY(-1px); }
+.cv-button .cv-icon { height: 20px; width: auto; filter: none; }
