@@ -1,68 +1,84 @@
 .header {
     height: 100px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-
-    background-color: rgb(55, 150, 131);
-    border-width: 2px;
-    border-color: rgb(5, 56, 107);
-
-    padding-left: 20px;
+    background-color: #379683;
+    padding: 12px 24px;
+    box-shadow: 0 6px 18px rgba(5,56,107,0.12);
 }
 
 .left-section {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
-    margin: 0;
-}
-
-.user, .graduation, .briefcase, .phone {
-    height: 40px;;
-}
-
-.user-button, .graduation-button, .briefcase-button, .phone-button {
-    display: flex;
+    gap: 20px;
     align-items: center;
-    margin-top: 25px;
-    background-color: rgb(55, 150, 131);
-    border: none;
-    cursor: pointer;
-    height: 50px;
-    border-radius: 25px;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(0,0,0,0.06);
+    padding: 10px 14px;
+    border-radius: 999px;
+    transition: transform 0.12s, background 0.12s;
     position: relative;
-    }
+}
 
-.user-button .tooltip, .graduation-button .tooltip, .briefcase-button .tooltip, .phone-button .tooltip {
+.nav-button img { height: 36px; width: auto; display: block; }
+
+.nav-button:hover { transform: translateY(-3px); background: rgba(0,0,0,0.09); }
+
+.nav-button .tooltip {
     position: absolute;
-    background-color: rgb(5, 56, 107);
-    color: rgb(237 ,245 ,225);
-    right: -70px;
-    padding: 6px;
-    border-radius: 8px;
-
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background-color: #053642;
+    color: #f3f6f1;
+    padding: 8px 10px;
+    border-radius: 6px;
     opacity: 0;
-    transition: opacity 0.15s;
     pointer-events: none;
+    font-size: 13px;
     white-space: nowrap;
-    font-size: 14px;
+    transition: opacity 0.15s, transform 0.15s;
+    z-index: 300;
 }
 
-.user-button:hover .tooltip, .graduation-button:hover .tooltip, .briefcase-button:hover .tooltip, .phone-button:hover .tooltip {
-    opacity: 1;
+.nav-button .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #053642;
 }
 
+.nav-button:hover .tooltip { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
 
-
-.right.section {
-    display: flex;
-    width: 1fr;
+.nav-button.active {
+    box-shadow: 0 6px 18px rgba(5,56,107,0.18);
+    background: #053642;
+    color: #f3f6f1;
+    transform: translateY(-2px) scale(1.02);
 }
+
+.right-section { display: flex; align-items: center; }
+
+.icon-link { display: inline-flex; align-items: center; margin-left: 12px; }
+.icon-link img { display: block; filter: none; height: 36px; width: auto; }
+
+
+

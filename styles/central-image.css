@@ -1,37 +1,39 @@
+.hero { margin: 0; }
+
 .central-image {
-    display: flex;
-    flex-direction: row;
-    width: 1fr;
-    margin-left: -8px;
-    margin-right: -8px;
-    border-style: solid;
-    border-color: rgb(5, 56, 107);
-    border-width: 2px;
-
     position: relative;
-    text-align: center;
-}
-
-.automazione {
     width: 100%;
-    opacity: 0.5;
+    overflow: hidden;
+    display: block;
 }
 
-.title-text {
-    position: absolute;
-    bottom: 150px;
-    left: 30px;
-    font-size: 50px;
-    font-family: Anton, Arial;
-    color: rgb(237 ,245 ,225);
-    border: none;
+.central-image img.automazione {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55) saturate(1.05);
 }
 
-.title-description {
+.hero-overlay {
     position: absolute;
-    bottom: 120px;
-    left: 30px;
-    font-size: 30px;
-    color: rgb(237 ,245 ,225);
-    font-family: Anton, Arial;
+    inset: 0 0 auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 420px;
+    padding-left: 40px;
 }
+
+.title-text { color: #f3f6f1; font-size: 44px; margin: 0; }
+.title-description { color: #f3f6f1; font-size: 20px; margin-top: 6px; font-family: 'Anton', Arial, sans-serif; }
+
+@media (max-width: 700px) {
+    .central-image img.automazione { height: 240px; }
+    .hero-overlay { padding-left: 18px; }
+    .title-text { font-size: 28px; }
+}
+
+/* Slight hero entrance animation */
+.hero .title-text, .hero .title-description { opacity: 0; transform: translateY(6px); transition: opacity 640ms ease, transform 640ms ease; }
+.hero.visible .title-text, .hero.visible .title-description { opacity: 1; transform: none; }
