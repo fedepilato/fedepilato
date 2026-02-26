@@ -79,7 +79,35 @@ h2 { font-size: 28px; color: #053642; }
 
 /* Contact icons row */
 .contact-icons { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
+
+/* Education two-column layout */
+.education-container .education-grid {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+.education-container .edu-image {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+}
+.education-container .edu-image img {
+    max-width: 100%;
+    height: auto;
+}
+.education-container .edu-text {
+    flex: 1;
+}
+.contact-icons .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #053642;
+    text-decoration: none;
+}
 .contact-icons .icon-link img { filter: none; height: 28px; width: auto; }
+.contact-icons .icon-link .icon-text { display: inline-block; }
 
 /* CV download button in contact section */
 .cv-button {
