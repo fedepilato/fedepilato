@@ -9,7 +9,6 @@
 
 .central-image img.automazione {
     width: 100%;
-    height: 420px;
     object-fit: cover;
     display: block;
     filter: brightness(0.55) saturate(1.05);

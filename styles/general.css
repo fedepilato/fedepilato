@@ -13,6 +13,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Global responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 p { margin: 0 0 1em 0; }
 
 h1, h2 {
