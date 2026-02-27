@@ -80,22 +80,40 @@ h2 { font-size: 28px; color: #053642; }
 /* Contact icons row */
 .contact-icons { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
 
-/* Education two-column layout */
-.education-container .education-grid {
+/* Email in contact section */
+.contact-email {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.contact-email a {
+    color: #053642;
+    text-decoration: none;
+    border-bottom: 1px dotted #053642;
+}
+.contact-email a:hover {
+    text-decoration: underline;
+}
+
+/* Generic two-column layout for sections with an image */
+.section .content-with-image {
     display: flex;
     gap: 24px;
     align-items: flex-start;
 }
-.education-container .edu-image {
+.section .content-with-image .image-col {
     flex: 0 0 150px;
     display: flex;
     justify-content: center;
 }
-.education-container .edu-image img {
+.section .content-with-image .image-col img {
     max-width: 100%;
     height: auto;
 }
-.education-container .edu-text {
+
+/* specific outline for frontal shot */
+.frontal-photo {
+    outline: 4px solid #000; 
+}.section .content-with-image .text-col {
     flex: 1;
 }
 .contact-icons .icon-link {
