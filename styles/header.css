@@ -1,84 +1,57 @@
 .header {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background-color: #379683;
-    padding: 12px 24px;
-    box-shadow: 0 6px 18px rgba(5,56,107,0.12);
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 80px; /* Slightly taller to accommodate bigger icons */
+    background: rgba(55, 150, 131, 0.95);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    z-index: 1000; display: flex; justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.left-section {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+.nav-container {
+    width: 100%; max-width: 1100px; display: flex;
+    justify-content: space-between; align-items: center; padding: 0 20px;
 }
+
+.nav-links { display: flex; gap: 15px; }
 
 .nav-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: inherit;
-    background: rgba(0,0,0,0.06);
-    padding: 10px 14px;
-    border-radius: 999px;
-    transition: transform 0.12s, background 0.12s;
     position: relative;
+    width: 52px; height: 52px; /* Bigger button area */
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.15); border-radius: 14px; transition: 0.3s;
+    text-decoration: none;
 }
 
-.nav-button img { height: 36px; width: auto; display: block; }
+/* BIGGER ICONS */
+.nav-button img { height: 28px; width: auto; filter: brightness(0) invert(1); transition: 0.3s; }
 
-.nav-button:hover { transform: translateY(-3px); background: rgba(0,0,0,0.09); }
-
-.nav-button .tooltip {
+/* HOVER TOOLTIP STYLE */
+.nav-label {
     position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    background-color: #053642;
-    color: #f3f6f1;
-    padding: 8px 10px;
+    bottom: -35px; /* Appears below the icon */
+    background: var(--dark, #053642);
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 10px;
     border-radius: 6px;
     opacity: 0;
     pointer-events: none;
-    font-size: 13px;
+    transition: 0.2s ease;
     white-space: nowrap;
-    transition: opacity 0.15s, transform 0.15s;
-    z-index: 300;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.nav-button .tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #053642;
+.nav-button:hover .nav-label {
+    opacity: 1;
+    transform: translateY(5px);
 }
 
-.nav-button:hover .tooltip { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.nav-button:hover, .nav-button.active { background: var(--dark, #053642); transform: translateY(-2px); }
 
-.nav-button.active {
-    box-shadow: 0 6px 18px rgba(5,56,107,0.18);
-    background: #053642;
-    color: #f3f6f1;
-    transform: translateY(-2px) scale(1.02);
+.site-title { color: white; font-family: 'Anton'; font-size: 1.3rem; text-transform: uppercase; }
+
+@media (max-width: 700px) {
+    .site-title { display: none; }
+    .nav-links { width: 100%; justify-content: space-around; }
+    .nav-label { display: none; } /* Hide labels on mobile to save space */
 }
-
-.right-section { display: flex; align-items: center; }
-
-.icon-link { display: inline-flex; align-items: center; margin-left: 12px; }
-.icon-link img { display: block; filter: none; height: 36px; width: auto; }
-
-
-
