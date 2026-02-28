@@ -158,7 +158,12 @@ h2 { font-size: 28px; color: #053642; }
     h1 { font-size: 34px; }
     h2 { font-size: 24px; }
     .content-with-image { flex-direction: column; }
-    .content-with-image .image-col { margin-bottom: 16px; }
+    .content-with-image .image-col { 
+        margin-bottom: 16px;
+        flex: 0 0 120px; /* reduce width on mobile */
+        justify-content: center; /* center image */
+    }
+    .content-with-image .image-col img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
     .contact-icons { flex-direction: column; align-items: flex-start; gap: 10px; }
     /* make header icons smaller and stack if needed */
     .header { flex-direction: column; align-items: flex-start; }
