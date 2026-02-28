@@ -151,3 +151,21 @@ h2 { font-size: 28px; color: #053642; }
 .cv-button:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(5,56,107,0.12); opacity: 1; }
 .cv-button:active { transform: translateY(-1px); }
 .cv-button .cv-icon { height: 20px; width: auto; filter: none; }
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+    .section { padding: 40px 15px; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 24px; }
+    .content-with-image { flex-direction: column; }
+    .content-with-image .image-col { margin-bottom: 16px; }
+    .contact-icons { flex-direction: column; align-items: flex-start; gap: 10px; }
+    /* make header icons smaller and stack if needed */
+    .header { flex-direction: column; align-items: flex-start; }
+    .header nav.left-section { flex-wrap: wrap; gap: 8px; }
+    .header .site-title { margin-top: 8px; }
+}
+
+@media (min-width: 1200px) {
+    .section-container { max-width: 1200px; }
+}
