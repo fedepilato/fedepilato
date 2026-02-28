@@ -1,63 +1,47 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Smooth appearance for hero
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    // wait a tick then add class to animate
-    requestAnimationFrame(() => setTimeout(() => hero.classList.add('visible'), 150));
-  }
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Reveal Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
 
-  // Intersection Observer for reveal on scroll
-  const observerOptions = { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 };
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.section .section-container, .content-box, .project').forEach(el => {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  });
-
-  // Active nav highlighting based on scroll position
-  const navLinks = Array.from(document.querySelectorAll('a.nav-button'));
-  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-
-  function onScroll() {
-    const middleY = window.innerHeight / 2 + window.scrollY;
-    let currentIndex = -1;
-    sections.forEach((sec, idx) => {
-      const rect = sec.getBoundingClientRect();
-      const top = rect.top + window.scrollY;
-      const bottom = top + rect.height;
-      if (middleY >= top && middleY < bottom) currentIndex = idx;
+    document.querySelectorAll('.reveal, .content-box, .timeline-item, .project-card, h2').forEach((item, index) => {
+        item.classList.add('reveal');
+        item.style.transitionDelay = `${(index % 3) * 0.1}s`;
+        observer.observe(item);
     });
 
-    navLinks.forEach((link, idx) => {
-      if (idx === currentIndex) link.classList.add('active'); else link.classList.remove('active');
-    });
-  }
+    // 2. Navigation Highlighting Logic
+    const navButtons = document.querySelectorAll('.nav-button');
+    const sections = document.querySelectorAll('section[id]');
 
-  onScroll();
-  window.addEventListener('scroll', throttle(onScroll, 120), { passive: true });
+    function updateActiveNav() {
+        let current = "";
+        
+        // Check if we are at the bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            current = "contact";
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Offset calculation (approx 1/3 of screen)
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
 
-  // Simple throttle
-  function throttle(fn, wait) {
-    let last = 0;
-    return function (...args) {
-      const now = Date.now();
-      if (now - last >= wait) {
-        last = now;
-        fn.apply(this, args);
-      }
-    };
-  }
+        navButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('href') === `#${current}`) {
+                btn.classList.add('active');
+            }
+        });
+    }
 
-  // Helpful keyboard support for nav (space/enter)
-  navLinks.forEach(a => a.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') a.click();
-  }));
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Run on load
 });

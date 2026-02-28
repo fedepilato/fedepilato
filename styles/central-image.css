@@ -1,38 +1,9 @@
-.hero { margin: 0; }
-
-.central-image {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    display: block;
-}
-
-.central-image img.automazione {
-    width: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.55) saturate(1.05);
-}
-
+.hero { height: 65vh; min-height: 450px; position: relative; overflow: hidden; }
+.hero-content { height: 100%; width: 100%; }
+.hero-bg { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.35); }
 .hero-overlay {
-    position: absolute;
-    inset: 0 0 auto 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 420px;
-    padding-left: 40px;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center; color: white; width: 90%;
 }
-
-.title-text { color: #f3f6f1; font-size: 44px; margin: 0; }
-.title-description { color: #f3f6f1; font-size: 20px; margin-top: 6px; font-family: 'Anton', Arial, sans-serif; }
-
-@media (max-width: 700px) {
-    .central-image img.automazione { height: 240px; }
-    .hero-overlay { padding-left: 18px; }
-    .title-text { font-size: 28px; }
-}
-
-/* Slight hero entrance animation */
-.hero .title-text, .hero .title-description { opacity: 0; transform: translateY(6px); transition: opacity 640ms ease, transform 640ms ease; }
-.hero.visible .title-text, .hero.visible .title-description { opacity: 1; transform: none; }
+.hero-overlay h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); margin-bottom: 10px; }
+.hero-overlay p { font-size: clamp(1rem, 3vw, 1.5rem); opacity: 0.8; font-family: 'JetBrains Mono'; }

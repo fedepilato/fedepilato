@@ -1,176 +1,97 @@
-html {
-    scroll-behavior: smooth;
+:root {
+    --primary: #379683;
+    --dark: #053642;
+    --light: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.75);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    font-family: 'Anton', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial;
-    background: linear-gradient(180deg, #e8f9f0 0%, #dff6ea 100%);
-    color: #073645;
-    padding-top: 110px; /* room for fixed header */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--light);
+    background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px;
 }
 
-/* Global responsive images */
-img {
-    max-width: 100%;
-    height: auto;
+h1, h2, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.section { padding: 100px 20px; display: flex; justify-content: center; }
+.alt-bg { background: rgba(55, 150, 131, 0.05); }
+.section-container { width: 100%; max-width: 1100px; }
+
+.content-box.glass {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.content-box:hover { transform: translateY(-8px); }
+
+.flex-row { display: flex; gap: 40px; align-items: center; }
+.profile-img { width: 180px; border-radius: 30px; box-shadow: 0 10px 30px rgba(55, 150, 131, 0.2); }
+.edu-logo { width: 90px; height: auto; object-fit: contain; }
+
+.timeline { position: relative; border-left: 3px solid var(--primary); margin-left: 20px; padding-left: 40px; margin-top: 30px; }
+.timeline-item { margin-bottom: 40px; position: relative; }
+.timeline-item::before {
+    content: ''; position: absolute; left: -53px; top: 35px;
+    width: 20px; height: 20px; background: var(--primary); border-radius: 50%;
+    border: 4px solid var(--light);
+}
+.date { font-weight: bold; color: var(--primary); font-size: 0.9rem; margin-bottom: 5px; display: block; }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
-p { margin: 0 0 1em 0; }
+.tech-stack-pills { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.tech-stack-pills span { background: var(--dark); color: white; padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; }
 
-h1, h2 {
-    color: #f3f6f1;
-    margin: 0 0 0.5rem 0;
-    font-family: 'Anton', Arial, sans-serif;
+.contact-card { text-align: center; }
+
+/* REDUCED EMAIL SIZE */
+.email-text { 
+    font-size: 1.1rem; 
+    color: var(--primary); 
+    text-decoration: none; 
+    font-weight: 700; 
+    margin-bottom: 30px; 
+    display: block; 
+    letter-spacing: 0.5px;
 }
 
-h1 { font-size: 48px; text-align: left; }
-h2 { font-size: 28px; color: #053642; }
-
-.section {
-    padding: 60px 20px;
+.social-icons { display: flex; justify-content: center; gap: 25px; align-items: center; flex-wrap: wrap; }
+.social-icon img { height: 40px; transition: 0.3s; }
+.social-icon:hover img { transform: translateY(-5px) scale(1.1); }
+.cv-download {
+    display: flex; align-items: center; gap: 12px; background: var(--dark);
+    color: white; padding: 12px 24px; border-radius: 15px; text-decoration: none; transition: 0.3s;
 }
+.cv-download:hover { background: var(--primary); transform: translateY(-5px); }
+.cv-download img { height: 20px; filter: invert(1); }
 
-/* Use JetBrains Mono for section content (monospaced for readability) */
-.section, .section-container, .section .content-box, .section p, .section li {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
-    font-weight: 400;
-}
+.footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
 
-.section--light { background: rgba(255,255,255,0.85); }
-.section--dark { background: rgba(5,56,107,0.06); }
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-.section-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 28px;
-    border-radius: 12px;
-}
-
-.content-box {
-    background: rgba(255,255,255,0.6);
-    padding: 18px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(5,56,107,0.08);
-}
-
-.site-title {
-    color: #f3f6f1;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.site-footer { padding: 28px 0; text-align: center; color: #053642; }
-
-/* Using Google-hosted Anton via <link> in index.html */
-
-/* Simple reveal animation used for section entries */
-.reveal {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
-}
-.reveal.is-visible {
-    opacity: 1;
-    transform: none;
-}
-
-.project { margin-bottom: 14px; }
-
-/* small utility for links inside content */
-.content-box a { color: #035; text-decoration: underline; }
-
-/* Contact icons row */
-.contact-icons { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
-
-/* Email in contact section */
-.contact-email {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-.contact-email a {
-    color: #053642;
-    text-decoration: none;
-    border-bottom: 1px dotted #053642;
-}
-.contact-email a:hover {
-    text-decoration: underline;
-}
-
-/* Generic two-column layout for sections with an image */
-.section .content-with-image {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-}
-.section .content-with-image .image-col {
-    flex: 0 0 150px;
-    display: flex;
-    justify-content: center;
-}
-.section .content-with-image .image-col img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* specific outline for frontal shot */
-.frontal-photo {
-    outline: 4px solid #000; 
-}.section .content-with-image .text-col {
-    flex: 1;
-}
-.contact-icons .icon-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    color: #053642;
-    text-decoration: none;
-}
-.contact-icons .icon-link img { filter: none; height: 28px; width: auto; }
-.contact-icons .icon-link .icon-text { display: inline-block; }
-
-/* CV download button in contact section */
-.cv-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    background: rgba(5,56,66,0.12); /* translucent so text remains readable */
-    color: #053642; /* dark text for contrast against translucent bg */
-    text-decoration: none;
-    border-radius: 10px;
-    border: 1px solid rgba(5,56,66,0.14);
-    box-shadow: 0 6px 14px rgba(5,56,107,0.08);
-    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s;
-    font-weight: 600;
-}
-.cv-button:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(5,56,107,0.12); opacity: 1; }
-.cv-button:active { transform: translateY(-1px); }
-.cv-button .cv-icon { height: 20px; width: auto; filter: none; }
-
-/* Responsive adjustments */
-@media (max-width: 700px) {
-    .section { padding: 40px 15px; }
-    h1 { font-size: 34px; }
-    h2 { font-size: 24px; }
-    .content-with-image { flex-direction: column; }
-    .content-with-image .image-col { 
-        margin-bottom: 16px;
-        flex: 0 0 120px; /* reduce width on mobile */
-        justify-content: center; /* center image */
-    }
-    .content-with-image .image-col img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-    .contact-icons { flex-direction: column; align-items: flex-start; gap: 10px; }
-    /* make header icons smaller and stack if needed */
-    .header { flex-direction: column; align-items: flex-start; }
-    .header nav.left-section { flex-wrap: wrap; gap: 8px; }
-    .header .site-title { margin-top: 8px; }
-}
-
-@media (min-width: 1200px) {
-    .section-container { max-width: 1200px; }
+@media (max-width: 768px) {
+    .section { padding: 60px 20px; }
+    .flex-row { flex-direction: column; text-align: center; gap: 20px; }
+    .timeline { margin-left: 0; padding-left: 25px; }
+    .timeline-item::before { left: -38px; }
+    .image-col { order: -1; }
 }
