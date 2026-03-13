@@ -95,3 +95,20 @@ h1, h2, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; letter
     .timeline-item::before { left: -38px; }
     .image-col { order: -1; }
 }
+
+/* CONTACT FORM STYLES */
+.custom-contact-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; align-items: center; }
+.input-group { display: flex; gap: 15px; width: 100%; }
+.custom-contact-form input, .custom-contact-form textarea {
+    width: 100%; padding: 12px 15px; border-radius: 12px;
+    border: 1px solid rgba(55, 150, 131, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--dark); outline: none; transition: 0.3s;
+}
+.custom-contact-form input:focus, .custom-contact-form textarea:focus { border-color: var(--primary); background: rgba(255, 255, 255, 0.9); }
+.submit-btn { border: none; cursor: pointer; font-family: 'JetBrains Mono', monospace; width: 100%; justify-content: center; margin-top: 10px;}
+.form-status { font-size: 0.9rem; font-weight: bold; margin-top: 10px; min-height: 20px;}
+.status-success { color: var(--primary); }
+.status-error { color: #e74c3c; }
+@media (max-width: 600px) { .input-group { flex-direction: column; } }

@@ -44,4 +44,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav(); // Run on load
+
+    // 3. Contact Form Submission Logic
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if(contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita che la pagina si ricarichi
+            
+            // Prendi la risposta del reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                formStatus.textContent = "Please complete the reCAPTCHA!";
+                formStatus.className = "form-status status-error";
+                return;
+            }
+
+            // Cambia il testo del bottone mentre carica
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = "<span>Sending...</span>";
+            formStatus.textContent = "";
+
+            // Raccogli i dati
+            const formData = {
+                name: document.getElementById('senderName').value,
+                email: document.getElementById('senderEmail').value,
+                message: document.getElementById('senderMessage').value,
+                recaptcha: recaptchaResponse
+            };
+
+            try {
+                // Invia i dati al nostro futuro backend!
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    formStatus.textContent = "Message sent successfully! I'll be in touch.";
+                    formStatus.className = "form-status status-success";
+                    contactForm.reset();
+                    grecaptcha.reset(); // Resetta il captcha
+                } else {
+                    throw new Error(result.error || "Failed to send message");
+                }
+            } catch (error) {
+                formStatus.textContent = error.message;
+                formStatus.className = "form-status status-error";
+            } finally {
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    }
 });

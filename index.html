@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header class="header">
@@ -124,7 +125,19 @@
             <div class="section-container">
                 <h2>Contact & Socials</h2>
                 <div class="content-box glass contact-card">
-                    <a href="mailto:federico.pilato03@gmail.com" class="email-text">federico.pilato03@gmail.com</a>
+                    <form id="contactForm" class="custom-contact-form">
+                        <div class="input-group">
+                            <input type="text" id="senderName" placeholder="Your Name" required>
+                            <input type="email" id="senderEmail" placeholder="Your Email" required>
+                        </div>
+                        <textarea id="senderMessage" placeholder="Your Message" rows="4" required></textarea>
+                        <div class="g-recaptcha" data-sitekey="6Lc6cIksAAAAAG_MMbX0Ur8wlgx03PGH2oz_-7mi" data-theme="dark"></div>
+    
+                        <button type="submit" class="cv-download submit-btn" id="submitBtn">
+                            <span>Send Message</span>
+                        </button>
+                        <p id="formStatus" class="form-status"></p>
+                    </form>
                     <div class="social-icons">
                         <a href="https://github.com/fedepilato" target="_blank" class="social-icon">
                             <img src="icons/github_icon.png" alt="GitHub">
